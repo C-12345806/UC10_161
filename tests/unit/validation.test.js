@@ -22,4 +22,20 @@ describe('Validação de tarefas', () => {
     test('Retorna string vazia se o título for indefinido', () => {
         expect(normalizeTitle(undefined)).toBe('');
     });
+
+    // Casos de teste para a função validateTaskInput
+    test('Se a descrição for uma string, remove os espaços em branco senão, retorna uma string vazia', () => {
+        expect(normalizeTitle('  Lavar a louça   ')).toBe('Lavar a louça');
+        expect(normalizeTitle(1234)).toBe('')
+    });
+
+    test('Se o título estiver vazio, mostrar que é pra preencher o campo, pois ele é obrigatório', () => {
+        expect(normalizeTitle('')).toBe('O título da tarefa é obrigatório');
+    });
+
+     test('Se o título tiver mais de 120 caracteres, gera um erro', () => {
+    const titulo = 'A'.repeat(121);
+    expect(normalizeTitle(titulo)).toBe('A'.repeat(121));
+    });
+    
 });
