@@ -11,10 +11,10 @@
 
 ## Tecnologias
 
-| Tecnologia | Função |
-|----------- | ------ |
-| HTML       | Estrutura/esqueleto da página web |
-| CSS        | Estilização/design da página      |
+| Tecnologia | Função | Versão | Comando |
+|----------- | ------ | ------ | ------- |
+| HTML       | Estrutura/esqueleto da página web | Não possui versão própria. É uma linguagem padronizada; pode-se consultar a versão do padrão HTML na documentação. | ---- |
+| CSS        | Estilização/design da página      | Não possui uma versão única instalada. O CSS evolui por módulos. | 
 | JavaScript | Interatividade/comportamento      |
 | Node.js    | Ambiente de execução que permite executar o JS no servidor |
 | Jest       | Framework de testes automatizados |
