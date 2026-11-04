@@ -15,4 +15,9 @@ describe("Testes unitários da função validateLead()", () => {
     expect(result.errors.length).toBe(0);
   });
 
+  test("Verifica nome inválido", () => {
+    //Passamos um nome inválido com apenas 1 caractere e guardamos o resultado na constante "result" 
+    const result = validateLead({name: "L", email: "luiza@email.com"});
+    expect(reult.errors)toContain("Informe seu nome (mínimo de 3 caracteres).")
+  });
 });
