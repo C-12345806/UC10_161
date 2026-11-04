@@ -1,20 +1,23 @@
-/* server.js — inicialização do servidor
-É o ponto de entrada da aplicação. Cria a conexão com o banco de dados, configura a aplicação e inicia o servidor na porta 3000.
-É o arquivo executado pelo comando npm start.*/
+const fs = require("fs");
+const path = require("path");
+const { openDatabase, initializeDatabase } = require("./database");
+const { createApp } = require("./app");
 
-const { createDatabase } = require('./db');
-const { createApp } = require('./app');
+async function start() {
+  const dataDir = path.join(__dirname, "../data");
+  fs.mkdirSync(dataDir, { recursive: true });
 
-const db = createDatabase();
-const app = createApp(db);
-const port = process.env.PORT || 3000;
+  const db = openDatabase(path.join(dataDir, "academia-viva.sqlite"));
+  await initializeDatabase(db);
 
-const server = app.listen(port, () => {
-  console.log(`Controle de Tarefas disponível em http://localhost:${port}`);
-});
-
-function shutdown() {
-  server.close(() => db.close(() => process.exit(0)));
+  const app = createApp(db);
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Academia Viva disponível em http://localhost:${port}`);
+  });
 }
-process.on('SIGINT', shutdown);
-process.on('SIGTERM', shutdown);
+
+start().catch((error) => {
+  console.error("Erro ao iniciar a aplicação:", error);
+  process.exit(1);
+});

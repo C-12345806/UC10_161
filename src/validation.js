@@ -1,26 +1,43 @@
-/* validation.js — validação dos dados
-Verifica se o título foi informado, remove espaços desnecessários e impede títulos com mais de 120 caracteres.
-Evita que dados inválidos sejam enviados para o banco. */
+// Esta função estrai os campos do formulário
+function validateLead({ name, email, phone, interest }) {
 
-// Se o título for uma string, remove os espaços em branco
-// Senão, retorna uma string vazia
+  // Criar um vetor que vai acumular os problemas encontrados ao longo da validação
+  const errors = [];
+  
+  // Validação do nome: Verifica se o nome não é uma string ou se tem menos de 3 caracteres
+  if (typeof name !== "string" || name.trim().length < 3) {
+    errors.push("Informe seu nome (mínimo de 2 caracteres).");
+  }
 
-function normalizeTitle(title) {
-  return typeof title === 'string' ? title.trim() : '';
+  // Validação de e-mail: Verifica se o e-mail não é uma string ou se ele não passa
+  // no teste de validação de e-mail
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;   // Verificação de e-mail:
+  if (typeof email !== "string" || !emailPattern.test(email.trim())) {
+    errors.push("Informe um e-mail válido.");
+  }
+
+
+  // Validação de telefone: Verifica se o telefone foi preenchido no formulário e se o tipo
+  // da variável "phone" é diferente de string
+  if (!phone && typeof phone !== "string") {
+    errors.push("Preencha o telefone corretamente.");
+  }
+
+  // Cria um vetor com as opções de modalidades de curso
+  const allowedInterests = ["Online", "Presencial", "Ainda não sei"];
+  // Validação de modalidade de curso: Verifica se a modalidade de interesse foi preenchida e
+  // se a opção enviada não está na lista de permitidos
+  if (!interest && !allowedInterests.includes(interest)) {
+    errors.push("Selecione uma modalidade válida.");
+  }
+
+  return { valid: errors.length === 0, errors };
 }
 
-function validateTaskInput(input) {
-  const title = normalizeTitle(input?.title);
-  if (!title) {
-    return { valid: false, error: 'O título da tarefa é obrigatório.' };
-  }
-  if (title.length > 120) {
-    return { valid: false, error: 'O título deve ter no máximo 120 caracteres.' };
-  }
-  const description = typeof input?.description === 'string'
-    ? input.description.trim()
-    : '';
-  return { valid: true, data: { title, description } };
+function normalizeCourseFilter(modality) {
+  if (!modality || modality === "Todos") return null;
+  const allowed = ["Online", "Presencial"];
+  return allowed.includes(modality) ? modality : null;
 }
 
-module.exports = { normalizeTitle, validateTaskInput };
+module.exports = { validateLead, normalizeCourseFilter };

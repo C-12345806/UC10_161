@@ -1,15 +1,17 @@
 {
-  "name": "controle-tarefas",
+  "name": "academia-viva-landing",
   "version": "1.0.0",
-  "description": "Aplicação simples de tarefas com HTML, CSS, JavaScript, Node.js, SQLite e Jest",
+  "description": "Landing page responsiva para empresa de cursos online e presenciais, com Express, SQLite, Jest e Supertest.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js",
-    "test": "jest --runInBand"
+    "dev": "nodemon src/server.js",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "express": "^4.21.2",
+    "jes": "^0.6.1",
     "sqlite3": "^6.0.1"
   },
   "devDependencies": {
@@ -18,9 +20,17 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "clearMocks": true,
     "testMatch": [
       "**/tests/**/*.test.js"
-    ]
+    ],
+    "verbose": true
+  },
+  "overrides": {
+    "braces": "^3.0.3",
+    "cross-spawn": "^6.0.6",
+    "decode-uri-component": "^0.5.1",
+    "glob": "^14.0.2",
+    "minimatch": "^11.0.1",
+    "got": "^11.8.5"
   }
 }
