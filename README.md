@@ -129,8 +129,8 @@ Verifica se o sistema aceita corretamente um cadastro completo quando todas as i
 ``` javascript
 ("Aceita cadastro mínimo válido", () => {
     const result = validateLead({
-        name: "Ana",
-        email: "ana@email.com"
+        name: "Luiza",
+        email: "luiza@email.com"
     });
 
     expect(result.valid).toBe(true);
@@ -159,8 +159,8 @@ Permite verificar se os campos opcionais não impedem a realização de um cadas
 ```javascript
 test("Rejeita nome muito curto", () => {
     const result = validateLead({
-        name: "Jo",
-        email: "ana@email.com"
+        name: "Lu",
+        email: "lu@email.com"
     });
 
     expect(result.errors).toContain(
@@ -193,7 +193,7 @@ Verifica se o sistema impede o cadastro de nomes que não atendem ao tamanho mí
 test("Rejeita nome com espaços vazios", () => {
     const result = validateLead({
         name: "   ",
-        email: "ana@email.com"
+        email: "luiza@email.com"
     });
 
     expect(result.valid).toBe(false);
@@ -223,7 +223,7 @@ Garante que o usuário não consiga realizar um cadastro utilizando apenas espa�
 test("Rejeita nome com tipo incorreto", () => {
     const result = validateLead({
         name: 123,
-        email: "ana@email.com"
+        email: "luiza@email.com"
     });
 
     expect(result.valid).toBe(false);
@@ -258,8 +258,8 @@ Verifica se o campo de nome aceita somente informações do tipo texto, evitando
 ```javascript
 test("Rejeita e-mail sem @", () => {
     const result = validateLead({
-        name: "Ana",
-        email: "anaemail.com"
+        name: "Luiza",
+        email: "luizaemail.com"
     });
 
     expect(result.errors).toContain(
@@ -290,7 +290,7 @@ Garante que o sistema identifique endereços de e-mail que não apresentam a est
 ```javascript
 test("Rejeita e-mail incompleto", () => {
     const result = validateLead({
-        name: "Ana",
+        name: "Luiza",
         email: "email@email"
     });
 
@@ -320,7 +320,7 @@ Verifica se o sistema impede o uso de endereços de e-mail incompletos ou fora d
 ```javascript
 test("Rejeita e-mail com tipo incorreto", () => {
     const result = validateLead({
-        name: "Ana",
+        name: "Luiza",
         email: 12345
     });
 
@@ -350,8 +350,8 @@ Garante que o campo de e-mail não aceite valores numéricos ou outros tipos de 
 ```javascript
 test("Rejeita telefone com tipo numérico", () => {
     const result = validateLead({
-        name: "Ana",
-        email: "ana@email.com",
+        name: "Luiza",
+        email: "luiza@email.com",
         phone: 27999999999
     });
 
@@ -383,8 +383,8 @@ Verifica se o sistema identifica o tipo incorreto de dado no telefone, garantind
 ```javascript
 test("Rejeita modalidade inválida", () => {
     const result = validateLead({
-        name: "Ana",
-        email: "ana@email.com",
+        name: "Luiza",
+        email: "luiza@email.com",
         interest: "Híbrido"
     });
 
@@ -416,8 +416,8 @@ Garante que o usuário selecione somente uma das modalidades disponibilizadas pe
 ```javascript
 test("Rejeita modalidade com diferença de caixa", () => {
     const result = validateLead({
-        name: "Ana",
-        email: "ana@email.com",
+        name: "Luiza",
+        email: "luiza@email.com",
         interest: "online"
     });
 
