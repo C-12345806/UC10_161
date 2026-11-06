@@ -86,7 +86,7 @@ Foram implementados 11 testes unitários utilizando Jest, todos relacionados à 
 - **Nome do teste no Jest:** `Aceita cadastro completo válido`.
 - **Objetivo:** Verificar se um cadastro com todos os campos preenchidos corretamente é aceito.
 - **Tipo de cenário:** Positivo.
-- **Entrada utilizada:** Nome: Ana Souza; e-mail: ana@email.com; telefone: 27999999999; modalidade: Online.
+- **Entrada utilizada:** Nome: Luiza; e-mail: luiza@email.com; telefone: 27999999999; modalidade: Online.
 - **Resultado esperado:** Cadastro válido, sem mensagens de erro.
 - **Resultado obtido:** Cadastro válido, sem erros.
 - **Status:** Aprovado.
@@ -119,7 +119,7 @@ Verifica se o sistema aceita corretamente um cadastro completo quando todas as i
 - **Nome do teste no Jest:** `Aceita cadastro mínimo válido`.
 - **Objetivo:** Verificar se o cadastro é aceito mesmo sem o preenchimento dos campos opcionais.
 - **Tipo de cenário:** Positivo.
-- **Entrada utilizada:** Nome: Ana; e-mail: ana@email.com.
+- **Entrada utilizada:** Nome: Luiza; e-mail: luiza@email.com.
 - **Resultado esperado:** Cadastro válido.
 - **Resultado obtido:** Cadastro válido.
 - **Status:** Aprovado.
@@ -149,7 +149,7 @@ Permite verificar se os campos opcionais não impedem a realização de um cadas
 - **Nome do teste no Jest:** `Rejeita nome muito curto`.
 - **Objetivo:** Verificar se o sistema rejeita nomes com menos de três caracteres.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: Jo; e-mail: ana@email.com.
+- **Entrada utilizada:** Nome: lu; e-mail: luiza@email.com.
 - **Resultado esperado:** Exibição da mensagem de erro sobre o tamanho mínimo do nome.
 - **Resultado obtido:** Mensagem de erro esperada.
 - **Status:** Aprovado.
@@ -212,7 +212,7 @@ Garante que o usuário não consiga realizar um cadastro utilizando apenas espa�
 - **Nome do teste no Jest:** `Rejeita nome com tipo incorreto`.
 - **Objetivo:** Verificar se o sistema rejeita nomes que não são textos.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: 123; e-mail: ana@email.com.
+- **Entrada utilizada:** Nome: 123; e-mail: luiza@email.com.
 - **Resultado esperado:** Cadastro inválido.
 - **Resultado obtido:** Cadastro inválido.
 - **Status:** Aprovado.
@@ -248,7 +248,7 @@ Verifica se o campo de nome aceita somente informações do tipo texto, evitando
 - **Nome do teste no Jest:** `Rejeita e-mail sem @`.
 - **Objetivo:** Verificar se o sistema identifica e-mails sem o símbolo obrigatório `@`.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: Ana; e-mail: anaemail.com.
+- **Entrada utilizada:** Nome: Luiza; e-mail: luizaemail.com.
 - **Resultado esperado:** Mensagem de e-mail inválido.
 - **Resultado obtido:** Mensagem de erro esperada.
 - **Status:** Aprovado.
@@ -280,7 +280,7 @@ Garante que o sistema identifique endereços de e-mail que não apresentam a est
 - **Nome do teste no Jest:** `Rejeita e-mail incompleto`.
 - **Objetivo:** Verificar se o sistema rejeita e-mails sem um domínio completo.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: Ana; e-mail: email@email.
+- **Entrada utilizada:** Nome: Luiza; e-mail: email@email.
 - **Resultado esperado:** Cadastro inválido.
 - **Resultado obtido:** Cadastro inválido.
 - **Status:** Aprovado.
@@ -310,7 +310,7 @@ Verifica se o sistema impede o uso de endereços de e-mail incompletos ou fora d
 - **Nome do teste no Jest:** `Rejeita e-mail com tipo incorreto`.
 - **Objetivo:** Verificar se o sistema rejeita e-mails que não são informados como texto.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: Ana; e-mail: 12345.
+- **Entrada utilizada:** Nome: Luiza; e-mail: 12345.
 - **Resultado esperado:** Cadastro inválido.
 - **Resultado obtido:** Cadastro inválido.
 - **Status:** Aprovado.
@@ -340,7 +340,7 @@ Garante que o campo de e-mail não aceite valores numéricos ou outros tipos de 
 - **Nome do teste no Jest:** `Rejeita telefone com tipo numérico`.
 - **Objetivo:** Verificar se o sistema rejeita telefones informados como números em vez de textos.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: Ana; e-mail: ana@email.com; telefone: 27999999999 (numérico).
+- **Entrada utilizada:** Nome: Luiza; e-mail: luiza@email.com; telefone: 27999999999 (numérico).
 - **Resultado esperado:** Mensagem informando que o telefone deve ser um texto.
 - **Resultado obtido:** Mensagem de erro esperada.
 - **Status:** Aprovado.
@@ -373,7 +373,7 @@ Verifica se o sistema identifica o tipo incorreto de dado no telefone, garantind
 - **Nome do teste no Jest:** `Rejeita modalidade inválida`.
 - **Objetivo:** Verificar se o sistema rejeita modalidades que não estão disponíveis.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: Ana; e-mail: ana@email.com; modalidade: Híbrido.
+- **Entrada utilizada:** Nome: Luiza; e-mail: luiza@email.com; modalidade: Híbrido.
 - **Resultado esperado:** Mensagem de modalidade inválida.
 - **Resultado obtido:** Mensagem de erro esperada.
 - **Status:** Aprovado.
@@ -406,7 +406,7 @@ Garante que o usuário selecione somente uma das modalidades disponibilizadas pe
 - **Nome do teste no Jest:** `Rejeita modalidade com diferença de caixa`.
 - **Objetivo:** Verificar se o sistema diferencia letras maiúsculas e minúsculas nas modalidades.
 - **Tipo de cenário:** Negativo.
-- **Entrada utilizada:** Nome: Ana; e-mail: ana@email.com; modalidade: online.
+- **Entrada utilizada:** Nome: Luiza; e-mail: luiza@email.com; modalidade: online.
 - **Resultado esperado:** Cadastro inválido.
 - **Resultado obtido:** Cadastro inválido.
 - **Status:** Aprovado.
