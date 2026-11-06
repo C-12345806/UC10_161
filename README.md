@@ -505,11 +505,11 @@ Concluí que os testes unitários são fundamentais para garantir a qualidade, a
 
 ---
 
-**Relatório elaborado por:** Tayla Prado Cabral de Oliveira Suares
+**Relatório elaborado por:** Clarisse Fernandes Santos
 
-**Data da última atualização:** 04/11/2026
+**Data da última atualização:** 06/11/2026
 ---
 
 **Relatório elaborado por:** \[Nome dos integrantes\]
 
-**Data da última atualização:** \[DD/MM/AAAA\]
+**Data da última atualização:** 06/11/2026
