@@ -454,7 +454,7 @@ Cálculo: (Testes aprovados ÷ Total de testes executados) × 100
 
 ## 7. Evidências da execução dos testes
 
-![Evidência da execução dos testes](../missao167/img/Captura%20de%20tela%202026-11-06%20084248.png)
+![Evidência da execução dos testes](../UC10_161-missao_168/img/testes.png)
 
 ---
 
