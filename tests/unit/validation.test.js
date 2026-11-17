@@ -1,52 +1,48 @@
-// Importa a função'normalizeTitle'
-const {normalizeTitle} = require('../../src/validation');
-
-// Agrupa um bloco de testes relacionados para 
-// Manter a organização
-describe('Validação de tarefas', () => {
-
-    test('Remove espaços do início e do fim do título', () => {
-        expect(normalizeTitle(' Teste Unitário ')).toBe('Teste Unitário');
-    });
-
-    test('Retorna string vazia se o título não for um número', () => {
-        expect(normalizeTitle(15487)).toBe('');
-    });
-
-    // Caso de teste 1: entrada nula
-    // Caso de teste 2: entrada indefinido
-    test('Retorna string vazia se o título for nulo', () => {
-        expect(normalizeTitle(null)).toBe('');
-    });
-    
-    test ('Retorna string vazia se o título for indefinido', () => {
-        expect(normalizeTitle(undefined)).toBe('');
-    });
-
-    // Casos de teste para a função validateTaskInput
+// Importa a função normalizeTitle
+const { normalizeTitle, validateTaskInput } = require('../../src/validation');
 
 
-    // Testa se a função remove os espaços em branco do início e do final
-    // da descrição quando ela é uma string. Se a entrada não for uma
-    // string, como um número, deve retornar uma string vazia.
-    test('Se a descrição for uma string, remove os espaços em branco senão, retorna uma string vazia', () => {
-        expect(normalizeTitle('  Lavar a louça   ')).toBe('Lavar a louça');
-        expect(normalizeTitle(1234)).toBe('')
-    });
+//Agrupa um bloco  de testes relacionados para manter a organazição 
+describe ('Validação de tarefas',  () => {
 
+test('Remove espaços do inicio e do fim do título', ()  =>{
+    expect(normalizeTitle ('   Teste Unitário   ')).toBe('Teste Unitário');
 
-    // Testa se, ao receber um título vazio, a função retorna uma mensagem
-    // informando que o título da tarefa é obrigatório.
-    test('Se o título estiver vazio, mostrar que é pra preencher o campo, pois ele é obrigatório', () => {
-        expect(normalizeTitle('')).toBe('O título da tarefa é obrigatório');
-    });
+});
 
+test('retorna uma string vazia se o título for um número' ,() =>{
+    expect(normalizeTitle( 12415844 )).toBe('');
 
-    // Testa se a função identifica títulos com mais de 120 caracteres
-    // e verifica se retorna o título completo, mesmo ultrapassando o limite.
-     test('Se o título tiver mais de 120 caracteres, gera um erro', () => {
-    const titulo = 'A'.repeat(121);
-    expect(normalizeTitle(titulo)).toBe('A'.repeat(121));
-    });
-    
+});
+
+test('retorna uma string vazia se o título for uma entrada nula', () =>{
+    expect(normalizeTitle( null )).toBe('');
+});
+
+test('retorna uma string vazia se o título for uma entrada indefinido', () =>{
+    expect(normalizeTitle( undefined )).toBe('');
+});
+
+  
+// Casos de teste para a função validateTaskInput
+
+  // Verifica se a função retorna uma string vazia quando a entrada é um número.
+  test('A entrada recebe um número', () => {
+    expect(normalizeTitle(2907)).toBe('');
+  });
+
+  // Verifica se a função lança um erro quando o título está vazio.
+  test('A entrada recebe um valor vazio', () => {
+    expect(() => validateTaskInput({ title: '' }))
+      .toThrow('O título da tarefa é obrigatório.');
+  });
+
+  // Verifica se um título com 125 caracteres, e é rejeitado por ultrapassar o limite de 120.
+  test('A entrada recebe um título com 125 caracteres', () => {
+    const title = 'A'.repeat(125);
+
+    expect(() => validateTaskInput({ title }))
+      .toThrow('O título deve ter no máximo 120 caracteres.');
+  });
+
 });
