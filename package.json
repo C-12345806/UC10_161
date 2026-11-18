@@ -1,26 +1,21 @@
 {
-  "name": "controle-tarefas",
+  "name": "exercicio-testes",
   "version": "1.0.0",
-  "description": "Aplicação simples de tarefas com HTML, CSS, JavaScript, Node.js, SQLite e Jest",
-  "main": "src/server.js",
+  "description": "Exercício de análise de testes unitários",
+  "main": "src/operacoes.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js",
-    "test": "jest --runInBand"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
-  "dependencies": {
-    "express": "^4.21.2",
-    "sqlite3": "^6.0.1"
+  "overrides": {
+    "braces": "^3.0.3",
+    "cross-spawn": "^6.0.6",
+    "decode-uri-component": "^0.5.1",
+    "glob": "^14.0.2",
+    "minimatch": "^11.0.1",
+    "got": "^11.8.5"
   },
   "devDependencies": {
-    "jest": "^30.5.2",
-    "supertest": "^7.0.0"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "clearMocks": true,
-    "testMatch": [
-      "**/tests/**/*.test.js"
-    ]
+    "jest": "^30.5.2"
   }
 }
